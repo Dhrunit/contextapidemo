@@ -7,12 +7,10 @@ import ThemeProvider from './contexts/ThemeContext';
 function App() {
 	return (
 		<ThemeProvider>
-			<div className='App'>
-				<PageContent>
-					<Navbar />
-					<Form />
-				</PageContent>
-			</div>
+			<PageContent>
+				<Navbar />
+				<Form />
+			</PageContent>
 		</ThemeProvider>
 	);
 }
