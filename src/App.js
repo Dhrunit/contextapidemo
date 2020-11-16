@@ -1,13 +1,19 @@
 import './App.css';
 import Navbar from './Navbar';
 import Form from './Form';
+import PageContent from './PageContent';
+import ThemeProvider from './contexts/ThemeContext';
 
 function App() {
 	return (
-		<div className='App'>
-			<Navbar />
-			<Form />
-		</div>
+		<ThemeProvider>
+			<div className='App'>
+				<PageContent>
+					<Navbar />
+					<Form />
+				</PageContent>
+			</div>
+		</ThemeProvider>
 	);
 }
 
