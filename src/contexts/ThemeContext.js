@@ -1,23 +1,17 @@
-import React, { Component, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 
 export const ThemeContext = createContext();
 
-class ThemeProvider extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { isDarkMode: true };
-	}
-	toggleTheme = () => {
-		this.setState({ isDarkMode: !this.state.isDarkMode });
+function ThemeProvider(props) {
+	const [isDarkMode, setIsDarkMode] = useState(true);
+	const toggleTheme = () => {
+		setIsDarkMode(!isDarkMode);
 	};
-	render() {
-		return (
-			<ThemeContext.Provider
-				value={{ ...this.state, toggleTheme: this.toggleTheme }}>
-				{this.props.children}
-			</ThemeContext.Provider>
-		);
-	}
+	return (
+		<ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+			{props.children}
+		</ThemeContext.Provider>
+	);
 }
 
 export default ThemeProvider;
